@@ -28,7 +28,15 @@ p=(sigma,beta,rho)
 from scipy.integrate import odeint
 # result_solve_ivp = solve_ivp(pend,(0.0,40),y0, args=p,method='LSODA', t_eval=t)
 
-y0 = [1.0, 1.0]
+# def func(d,a,b,g,w,M):
+#     y0 = [1.0, 1.0]
+#
+#     d = 0.02
+#     a = 1
+#     b = 5
+#     g = 8
+#     w = 0.5
+#     p=(d,a,b,g,w)
 
 d = 0.02
 a = 1
@@ -36,7 +44,7 @@ b = 5
 g = 8
 w = 0.5
 p=(d,a,b,g,w)
-
+y0 = [1.0, 1.0]
 M=2000
 tmin=0
 period = 2*math.pi/w
@@ -57,10 +65,10 @@ fig = plt.figure()
 
 if 1==1:
     ax = fig.add_subplot(1, 1, 1)
-    ax.scatter(result_solve_ivp.y[0, 0::], result_solve_ivp.y[1, 0::], marker=".", linewidths=0)
+    ax.scatter(result_solve_ivp.y[0, 0::], result_solve_ivp.y[1, 0::], marker="o", linewidths=0, s=(350./fig.dpi)**2)
 
     # ax.plot(result_solve_ivp.y[0, :], result_solve_ivp.y[1, :])
-    ax.set_title("solve_ivp")
+    ax.set_title("Poincare section clearly displays 'complexity'")
 
     plt.show()
 
